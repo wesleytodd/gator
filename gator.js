@@ -308,10 +308,8 @@
         // multiple events from the same node
         //
         // for example: Gator(document).on(...
-        for (var id in _gatorInstances) {
-            if (_gatorInstances[id].element === element) {
-                return _gatorInstances[id];
-            }
+        if (element.__gatorId && _gatorInstances[element.__gatorId]) {
+            return _gatorInstances[element.__gatorId];
         }
 
         // Make sure we are always called with new
@@ -321,6 +319,7 @@
 
         this.element = element;
         this.id = _id++;
+        this.element.__gatorId = this.id;
         _gatorInstances[this.id] = this;
     }
 
