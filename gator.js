@@ -90,7 +90,7 @@
 
         // if it doesn't match a native browser method
         // fall back to the gator function
-        _matcher = Gator._matchesSelector || funciton() {};
+        _matcher = Gator._matchesSelector || function() {};
         return _matcher;
     }
 
